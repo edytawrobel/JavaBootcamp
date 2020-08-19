@@ -1,9 +1,14 @@
 public class Cinema {
+
     public boolean canBuyTicket(Movie movie, Customer customer){
-        return false;
+        return customer.getAge() > movie.getAgeRestriction();
     }
 
     public Ticket orderTicket(Movie movie, Customer customer, int seat) {
-        return new Ticket("Frozen 2", 42);
+        if(canBuyTicket(movie,customer)) {
+            return new Ticket("Frozen 2", 42);
+        } else {
+            throw new RuntimeException("Age restriction violated");
+        }
     }
 }

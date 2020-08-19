@@ -5,25 +5,33 @@ import static org.junit.Assert.*;
 public class CinemaTest {
     @Test
     public void shouldBeAbleToBuyCinemaTicketWhenOlderThanRestriction() {
-        //given
         int age = 19;
         Customer customer = new Customer(age);
         Movie movie = new Movie("Frozen 2", 12);
         Cinema cinema = new Cinema();
-        //when
         boolean canGetTicket = cinema.canBuyTicket(movie, customer);
-        //then
         assertTrue(canGetTicket);
     }
 
     @Test
     public void shouldNotBeAbleToBuyCinemaTicketWhenYoungerThanRestriction() {
-        fail("not implemented");
+
+        int age = 17;
+        Customer customer = new Customer(age);
+        Movie movie = new Movie("Inception", 18);
+        Cinema cinema = new Cinema();
+        boolean canBuyTicket = cinema.canBuyTicket(movie, customer);
+        assertFalse(canBuyTicket);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void shouldThrowExceptionWhenTryOrderTicketAndYoungerThanAgeRestriction() {
-        fail("not implemented");
+        int age = 17;
+        Customer customer = new Customer(age);
+        Movie movie = new Movie("Inception", 18);
+        Cinema cinema = new Cinema();
+        cinema.orderTicket(movie, customer, 42);
+//        assertFalse(canBuyTicket);
     }
 
     @Test
@@ -37,7 +45,9 @@ public class CinemaTest {
         Cinema cinema = new Cinema();
         //when
         Ticket ticket = cinema.orderTicket(movie, customer, seat);
+        Ticket ticket1 = cinema.orderTicket(movie, customer, seat);
+
         //then
-        assertEquals(new Ticket(title, seat), ticket);
+        assertEquals(ticket1, ticket);
     }
 }

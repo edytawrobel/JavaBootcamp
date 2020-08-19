@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Ticket {
     private final String title;
     private final int seat;
@@ -14,4 +16,18 @@ public class Ticket {
     public int getSeat() {
         return seat;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Ticket ticket = (Ticket) obj;
+        return Objects.equals(title, ticket.title) && seat == ticket.seat;
+    }
 }
+

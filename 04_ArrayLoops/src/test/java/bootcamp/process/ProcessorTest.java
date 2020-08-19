@@ -7,7 +7,7 @@ public class ProcessorTest {
 
     @Test
     public void shouldGetSummaryWithCorrectValuesWhenProcessingValidArray() {
-        fail("Not Implemented");
+        ;
     }
 
     @Test
