@@ -4,7 +4,7 @@ public class Cinema {
         return customer.getAge() > movie.getAgeRestriction();
     }
 
-    public Ticket orderTicket(Movie movie, Customer customer, int seat) {
+    public Ticket orderTicket(Movie movie, Customer customer) {
         if(canBuyTicket(movie,customer)) {
             return new Ticket("Frozen 2", 42);
         } else {

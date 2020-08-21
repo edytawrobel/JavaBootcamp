@@ -30,7 +30,7 @@ public class CinemaTest {
         Customer customer = new Customer(age);
         Movie movie = new Movie("Inception", 18);
         Cinema cinema = new Cinema();
-        cinema.orderTicket(movie, customer, 42);
+        cinema.orderTicket(movie, customer);
 //        assertFalse(canBuyTicket);
     }
 
@@ -44,8 +44,8 @@ public class CinemaTest {
         Movie movie = new Movie(title, 12);
         Cinema cinema = new Cinema();
         //when
-        Ticket ticket = cinema.orderTicket(movie, customer, seat);
-        Ticket ticket1 = cinema.orderTicket(movie, customer, seat);
+        Ticket ticket = cinema.orderTicket(movie, customer);
+        Ticket ticket1 = cinema.orderTicket(movie, customer);
 
         //then
         assertEquals(ticket1, ticket);
