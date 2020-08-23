@@ -15,8 +15,9 @@ public class PersonLocator {
     //nested loop
     public Optional<Location> find(final Person person) {
         if (person == null || people == null) return Optional.empty();
-
-        for (int rowIndex = 0; rowIndex < people.length; rowIndex++ ) {
+        int rowIndex = 0;
+        while(rowIndex < people.length) {
+//        for (int rowIndex = 0; rowIndex < people.length; rowIndex++ ) {
             Object[] row = people[rowIndex];
             if (row != null) {
                 for (int columnIndex = 0; columnIndex < row.length; columnIndex++) {
@@ -28,6 +29,19 @@ public class PersonLocator {
     }
 }
 
+//    public Optional<Location> find(final Person person) {
+//
+//        int x = 0;
+//        while (x < people.length) {
+//            for(int y = 0; y < people[x].length; y++) {
+//                if (person.equals(people[x][y])) {
+//                    return Optional.of(new Location(x, y));
+//                }
+//            }
+//            x++;
+//        }
+//        return Optional.empty();
+//    }
 
 
 // an array of people from Person obj (firstName lastName) find a person in people array and return their location
