@@ -14,10 +14,10 @@ public class AddressDirectory {
 
     public AddressDirectory(final HashMap<Person, Address> addressList) {
         this.directory = addressList;
+        addressList.forEach((p) -> directory.put(p.getPerson(), p.getAddress()));
     }
 
     public Optional<Address> getAddress(final Person person) {
-        //FIXME
         return Optional.ofNullable(directory.get(person));
     }
 

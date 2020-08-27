@@ -2,5 +2,5 @@ package bootcamp.data;
 
 public enum Status {
     SUCCESS,
-    IO_ERROR,
+    KEY_NOT_FOUND;
 }
